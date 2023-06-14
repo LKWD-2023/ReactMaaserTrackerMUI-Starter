@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Container, TextField, Button, Autocomplete, Typography } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
 const sources = [
@@ -14,9 +13,6 @@ const sources = [
 const AddIncomePage = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
 
     return (
         <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '80vh' }}>
@@ -38,10 +34,11 @@ const AddIncomePage = () => {
                 fullWidth
                 margin="normal"
             />
-            <DatePicker
+             <TextField
                 label="Date"
-                value={dayjs(selectedDate)}
-                onChange={handleDateChange}
+                type="date"
+                value={dayjs(selectedDate).format('YYYY-MM-DD')}
+                onChange={e => setSelectedDate(e.target.value)}
                 renderInput={(params) => <TextField {...params} fullWidth margin="normal" variant="outlined" />}
             />
             <Button variant="contained" color="primary">Add Income</Button>

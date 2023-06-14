@@ -1,14 +1,10 @@
 import React from 'react';
 import { Container, TextField, Button, Typography } from '@mui/material';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import dayjs from 'dayjs';
 
 const AddMaaserPage =() => {
     const [selectedDate, setSelectedDate] = React.useState(new Date());
 
-    const handleDateChange = (date) => {
-        setSelectedDate(date);
-    };
 
     return (
         <Container maxWidth="sm" sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '80vh' }}>
@@ -17,10 +13,11 @@ const AddMaaserPage =() => {
             </Typography>
             <TextField label="Recipient" variant="outlined" fullWidth margin="normal" />
             <TextField label="Amount" variant="outlined" fullWidth margin="normal" />
-            <DatePicker
+            <TextField
                 label="Date"
-                value={dayjs(selectedDate)}
-                onChange={handleDateChange}
+                type="date"
+                value={dayjs(selectedDate).format('YYYY-MM-DD')}
+                onChange={e => setSelectedDate(e.target.value)}
                 renderInput={(params) => <TextField {...params} fullWidth margin="normal" variant="outlined" />}
             />
             <Button variant="contained" color="primary">Add Maaser</Button>
