@@ -3,14 +3,14 @@ import { Container, Typography, Box, Paper } from '@mui/material';
 
 const OverviewPage = () => {
   return (
-    <Container 
-      maxWidth="md" 
-      sx={{ 
-        display: 'flex', 
-        flexDirection: 'column', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '80vh', 
+    <Container
+      maxWidth="md"
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '80vh',
         textAlign: 'center'
       }}
     >
@@ -27,6 +27,9 @@ const OverviewPage = () => {
           </Typography>
         </Box>
         <Box>
+          <Typography variant="h5" gutterBottom>
+            Maaser Obligated: $500
+          </Typography>
           <Typography variant="h5" gutterBottom>
             Remaining Maaser obligation: $0
           </Typography>
